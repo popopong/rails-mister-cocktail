@@ -1,7 +1,11 @@
-<h1>Our cocktails</h1>
+<%= image_tag 'https://previews.123rf.com/images/tatianadavidova/tatianadavidova2002/tatianadavidova200200042/140668413-exotic-cocktails-banner-watercolor-vector-cocktails-.jpg', alt:'cocktail banner', width: 350, class: 'banner' %>
 
-<ul>
-  <% @cocktails.each do |cocktail| %>
-    <li><%= cocktail.name %></li>
-  <% end %>
-</ul>
+
+<% @cocktails.each do |cocktail| %>
+  <div class="card-category">
+    <h3><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
+    <% cocktail.doses.each do |dose| %>
+      <p><%= "- #{dose.ingredient.name}" %></p>
+    <% end %>
+  </div>
+<% end %>
