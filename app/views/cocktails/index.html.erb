@@ -1,14 +1,19 @@
 <%= image_tag 'https://previews.123rf.com/images/tatianadavidova/tatianadavidova2002/tatianadavidova200200042/140668413-exotic-cocktails-banner-watercolor-vector-cocktails-.jpg', alt:'cocktail banner', width: 350, class: 'banner' %>
 
-
 <% @cocktails.each do |cocktail| %>
-  <div class="card-category">
-    <h3><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
-    <% cocktail.doses.each do |dose| %>
-      <p><%= "- #{dose.ingredient.name}" %></p>
-    <% end %>
-  </div>
+  <% if cocktail.photo.attached? %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>')">
+        <h3><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
+        <% cocktail.doses.each do |dose| %>
+          <p><%= "- #{dose.ingredient.name}" %></p>
+        <% end %>
+      </div>
+  <% else %>
+   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_url('https://images.megapixl.com/4771/47713087.jpg') %>)">
+        <h3><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
+        <% cocktail.doses.each do |dose| %>
+          <p><%= "- #{dose.ingredient.name}" %></p>
+        <% end %>
+      </div>
+  <% end %>
 <% end %>
-
-<%= cl_image_tag("https://res.cloudinary.com/popopong/image/upload/v1589564975/rihzhno49jcfjjac8yli.jpg",
-      width: 400, height: 300, crop: :fill) %>
