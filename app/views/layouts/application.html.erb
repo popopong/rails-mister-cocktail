@@ -13,8 +13,7 @@
 
   <body>
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT-SHUmwCKB7oxbH4JixlojK5zQ7IawuEH7V7vzAl2jymigJYHM&usqp=CAU"), cocktails_path, class: "navbar-brand" %>
-
+  <%= link_to image_tag("cocktail_nav"), cocktails_path, class: "navbar-brand" %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -23,7 +22,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item">
         <%= link_to "New cocktail", new_cocktail_path, class: "nav-link" %>
       </li>
     </ul>

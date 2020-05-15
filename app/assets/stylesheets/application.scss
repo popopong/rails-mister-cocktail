@@ -12,7 +12,35 @@
 @import "components/index";
 @import "pages/index";
 
+body {
+  background: #272121;
+  color: #f1d4d4;
+}
+
+h1 {
+  color: #de7a7a;
+}
+
+a {
+  color: white;
+  display: block;
+}
+
 .banner {
+  padding-top: 20px;
   display: block;
   margin: auto;
+  height: 300px;
+  object-fit: contain;
+}
+
+.navbar {
+  background: #44000d;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #b11c1c;
+  &:hover {
+    color: red;
+  }
 }

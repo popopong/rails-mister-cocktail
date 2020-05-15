@@ -1,19 +1,21 @@
-<h1>Details of <%= @cocktail.name %></h1>
+<div class="container">
+  <h1>Details of <%= @cocktail.name %></h1>
 
-<% if @cocktail.photo.attached? %>
-  <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
-<% else %>
-  <%= image_tag 'https://images.megapixl.com/4771/47713087.jpg', style: 'height: 300px; width: 400px' %>
-<% end %>
+  <% if @cocktail.photo.attached? %>
+    <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+  <% else %>
+    <%= image_tag 'https://images.megapixl.com/4771/47713087.jpg', style: 'height: 300px; width: 400px' %>
+  <% end %>
 
-<h2><%= @cocktail.name %></h2>
+  <h2><%= @cocktail.name %></h2>
 
-<ul>
-<% @cocktail.doses.each do |dose| %>
-  <li><%= dose.description %> <%= dose.ingredient.name %></li>
-<% end %>
-</ul>
+  <ul>
+  <% @cocktail.doses.each do |dose| %>
+    <li><%= dose.description %> <%= dose.ingredient.name %></li>
+  <% end %>
+  </ul>
 
 
-<%= link_to "Main page", cocktails_path %>
-<%= link_to "Add doses", new_cocktail_dose_path(@cocktail) %>
+  <%= link_to "Main page", cocktails_path %>
+  <%= link_to "Add doses", new_cocktail_dose_path(@cocktail) %>
+</div>
